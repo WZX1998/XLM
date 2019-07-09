@@ -314,11 +314,11 @@ echo "Full vocab in: $FULL_VOCAB"
 # binarize data
 if ! [[ -f "$SRC_TRAIN_BPE.pth" ]]; then
   echo "Binarizing $SRC data..."
-  $MAIN_PATH/preprocess.py $FULL_VOCAB $SRC_TRAIN_BPE
+  python3 $MAIN_PATH/preprocess.py $FULL_VOCAB $SRC_TRAIN_BPE
 fi
 if ! [[ -f "$TGT_TRAIN_BPE.pth" ]]; then
   echo "Binarizing $TGT data..."
-  $MAIN_PATH/preprocess.py $FULL_VOCAB $TGT_TRAIN_BPE
+  python3 $MAIN_PATH/preprocess.py $FULL_VOCAB $TGT_TRAIN_BPE
 fi
 echo "$SRC binarized data in: $SRC_TRAIN_BPE.pth"
 echo "$TGT binarized data in: $TGT_TRAIN_BPE.pth"
@@ -356,10 +356,10 @@ $FASTBPE applybpe $PARA_TGT_TEST_BPE  $PARA_TGT_TEST  $BPE_CODES $TGT_VOCAB
 
 echo "Binarizing data..."
 rm -f $PARA_SRC_VALID_BPE.pth $PARA_TGT_VALID_BPE.pth $PARA_SRC_TEST_BPE.pth $PARA_TGT_TEST_BPE.pth
-$MAIN_PATH/preprocess.py $FULL_VOCAB $PARA_SRC_VALID_BPE
-$MAIN_PATH/preprocess.py $FULL_VOCAB $PARA_TGT_VALID_BPE
-$MAIN_PATH/preprocess.py $FULL_VOCAB $PARA_SRC_TEST_BPE
-$MAIN_PATH/preprocess.py $FULL_VOCAB $PARA_TGT_TEST_BPE
+python3 $MAIN_PATH/preprocess.py $FULL_VOCAB $PARA_SRC_VALID_BPE
+python3 $MAIN_PATH/preprocess.py $FULL_VOCAB $PARA_TGT_VALID_BPE
+python3 $MAIN_PATH/preprocess.py $FULL_VOCAB $PARA_SRC_TEST_BPE
+python3 $MAIN_PATH/preprocess.py $FULL_VOCAB $PARA_TGT_TEST_BPE
 
 
 #
